@@ -1,7 +1,10 @@
 // `BASE_URL` includes the repository path on GitHub Pages (for example,
 // `/lear-memory-game/`) and `/` during local development.
 const generated = `${import.meta.env.BASE_URL}assets/generated`;
-const select = (path: string, finalAsset: string | null = null) => finalAsset ?? `${generated}/${path}`;
+// Static SVGs keep the same filename between deployments. Version the URL so
+// browsers/CDNs do not reuse an older SVG after an asset is regenerated.
+const assetVersion = '2026-09-15-transparent-assets';
+const select = (path: string, finalAsset: string | null = null) => finalAsset ?? `${generated}/${path}?v=${assetVersion}`;
 
 export const assetSpecs = { memoryCard: { width: 1024, height: 1024, ratio: 1 }, biome: { width: 2048, height: 1152, ratio: 16 / 9 } };
 export const assets = {
