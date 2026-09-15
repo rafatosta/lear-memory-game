@@ -1,4 +1,6 @@
-const generated = '/assets/generated';
+// `BASE_URL` includes the repository path on GitHub Pages (for example,
+// `/lear-memory-game/`) and `/` during local development.
+const generated = `${import.meta.env.BASE_URL}assets/generated`;
 const select = (path: string, finalAsset: string | null = null) => finalAsset ?? `${generated}/${path}`;
 
 export const assetSpecs = { memoryCard: { width: 1024, height: 1024, ratio: 1 }, biome: { width: 2048, height: 1152, ratio: 16 / 9 } };
